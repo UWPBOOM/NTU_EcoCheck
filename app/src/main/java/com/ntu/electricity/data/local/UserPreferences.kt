@@ -13,31 +13,31 @@ class UserPreferences(context: Context) {
 
     var studentId: String
         get() = prefs.getString(KEY_STUDENT_ID, "") ?: ""
-        set(value) { prefs.edit().putString(KEY_STUDENT_ID, value).commit() }
+        set(value) { prefs.edit().putString(KEY_STUDENT_ID, value).apply() }
 
     var password: String
         get() = prefs.getString(KEY_PASSWORD, "") ?: ""
-        set(value) { prefs.edit().putString(KEY_PASSWORD, value).commit() }
+        set(value) { prefs.edit().putString(KEY_PASSWORD, value).apply() }
 
     var campus: String
         get() = prefs.getString(KEY_CAMPUS, "") ?: ""
-        set(value) { prefs.edit().putString(KEY_CAMPUS, value).commit() }
+        set(value) { prefs.edit().putString(KEY_CAMPUS, value).apply() }
 
     var building: String
         get() = prefs.getString(KEY_BUILDING, "") ?: ""
-        set(value) { prefs.edit().putString(KEY_BUILDING, value).commit() }
+        set(value) { prefs.edit().putString(KEY_BUILDING, value).apply() }
 
     var room: String
         get() = prefs.getString(KEY_ROOM, "") ?: ""
-        set(value) { prefs.edit().putString(KEY_ROOM, value).commit() }
+        set(value) { prefs.edit().putString(KEY_ROOM, value).apply() }
 
     var rememberSelection: Boolean
         get() = prefs.getBoolean(KEY_REMEMBER, true)
-        set(value) { prefs.edit().putBoolean(KEY_REMEMBER, value).commit() }
+        set(value) { prefs.edit().putBoolean(KEY_REMEMBER, value).apply() }
 
     var colorIndex: Int
         get() = prefs.getInt(KEY_COLOR_INDEX, 0)
-        set(value) { prefs.edit().putInt(KEY_COLOR_INDEX, value).commit() }
+        set(value) { prefs.edit().putInt(KEY_COLOR_INDEX, value).apply() }
 
     fun saveAll(
         studentId: String,
@@ -55,7 +55,7 @@ class UserPreferences(context: Context) {
             .putString(KEY_BUILDING, building)
             .putString(KEY_ROOM, room)
             .putBoolean(KEY_REMEMBER, rememberSelection)
-            .commit()
+            .apply()
         // Verify
         Log.d(TAG, "saveAll verify: sid=${this.studentId}, campus=${this.campus}, remember=${this.rememberSelection}")
     }

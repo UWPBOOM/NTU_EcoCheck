@@ -60,12 +60,11 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         _studentId.value = config.studentId
         _password.value = config.password
         _rememberSelection.value = config.rememberSelection
-        if (config.rememberSelection) {
-            _selectedCampus.value = config.campus
-            _selectedBuilding.value = config.building
-            _selectedRoom.value = config.room
-        }
-        Log.d("HomeVM", "loadSavedConfig: sid=${_studentId.value}, campus=${_selectedCampus.value}, remember=${_rememberSelection.value}")
+        // Always load saved selections
+        _selectedCampus.value = config.campus
+        _selectedBuilding.value = config.building
+        _selectedRoom.value = config.room
+        Log.d("HomeVM", "loadSavedConfig: sid=${_studentId.value}, campus=${_selectedCampus.value}")
     }
 
     fun getCampusNames(): List<String> = campusNames

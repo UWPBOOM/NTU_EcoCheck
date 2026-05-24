@@ -39,7 +39,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -311,19 +310,39 @@ fun HomeScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "记住选择",
+                    text = "保存数据",
                     style = MaterialTheme.typography.bodyMedium
                 )
-                Switch(
-                    checked = rememberSelection,
-                    onCheckedChange = viewModel::onRememberSelectionChange
-                )
+                Button(
+                    onClick = {
+                        viewModel.saveConfig(
+                            studentId.trim(),
+                            password.trim(),
+                            selectedCampus,
+                            selectedBuilding,
+                            selectedRoom,
+                            true
+                        )
+                    },
+                    shape = MaterialTheme.shapes.medium
+                ) {
+                    Text("确定")
+                }
             }
 
             Spacer(modifier = Modifier.height(8.dp))
 
             Button(
                 onClick = {
+                    // Save config first so data persists even if process is killed
+                    viewModel.saveConfig(
+                        studentId.trim(),
+                        password.trim(),
+                        selectedCampus,
+                        selectedBuilding,
+                        selectedRoom,
+                        true
+                    )
                     val campusId = viewModel.getCampusId(selectedCampus) ?: ""
                     val buildingId = viewModel.getBuildingId(selectedCampus, selectedBuilding) ?: ""
                     val roomId = viewModel.getRoomId(selectedCampus, selectedBuilding, selectedRoom) ?: ""
