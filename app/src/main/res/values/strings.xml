@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NTU电费查询</string>
+    <string name="student_id_hint">学号</string>
+    <string name="password_hint">密码</string>
+    <string name="campus_hint">校区</string>
+    <string name="building_hint">楼栋</string>
+    <string name="room_hint">房间</string>
+    <string name="remember_selection">记住选择</string>
+    <string name="query_button">一键查询</string>
+    <string name="query_history">查询历史</string>
+    <string name="clear_history">清空历史</string>
+    <string name="electricity_unit">度</string>
+    <string name="remaining_electricity">剩余电量</string>
+    <string name="error_message">服务器繁忙，请稍后再试</string>
+    <string name="no_history">暂无查询记录</string>
+    <string name="query_time">查询时间</string>
+</resources>
